@@ -87,10 +87,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void displayNotes(){
         EditText notesEditText = (EditText) findViewById(R.id.notes_edit_text);
+        String ed_text = notesEditText.getText().toString().trim();
         TextView notesTextView = (TextView) findViewById(R.id.notes_text_view);
         TextView otherNotesTextView = (TextView) findViewById(R.id.othernotes_text_view);
         notesTextView.setText(notesEditText.getText().toString());
         notesTextView.setVisibility(View.VISIBLE);
         otherNotesTextView.setVisibility(View.VISIBLE);
+        if(ed_text.isEmpty()){
+            notesTextView.setVisibility(View.GONE);
+            otherNotesTextView.setVisibility(View.GONE);
+        }
     }
 }
