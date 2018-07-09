@@ -61,6 +61,16 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/add_notes_button"
+            android:layout_width="121dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:onClick="showEditText"
+            android:text="Add Note" />
+
         <EditText
             android:id="@+id/notes_edit_text"
             android:layout_width="wrap_content"
@@ -72,7 +82,8 @@
             android:hint="@string/notes"
             android:inputType="textPersonName"
             android:textColor="@android:color/darker_gray"
-            tools:text="Notes:" />
+            tools:text="Notes:"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/price"

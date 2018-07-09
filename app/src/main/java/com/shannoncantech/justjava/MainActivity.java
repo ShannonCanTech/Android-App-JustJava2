@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    /*
+    * This adds 1 to the quantity
+    * */
     public void increment(View view) {
 /*        finalNumberOfCoffee = numOfCoffee + 1;
         display(finalNumberOfCoffee);*/
@@ -33,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
         displayPrice(quantity * 5);
     }
 
+    /*
+    * Subtract 1 from the quantity but never lets the quantity be less than 0.
+    * */
     public void decrement(View view) {
         if (quantity > 1) {
             quantity = quantity - 1;
@@ -60,6 +66,13 @@ public class MainActivity extends AppCompatActivity {
         displayNotes();
     }
 
+    /*
+    * Value for the "Add Notes" onClick feature
+    * */
+    public void showEditText(View view){
+        displayEditText();
+    }
+
     /**
      * This method displays the given quantity value on the screen.
      */
@@ -85,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /*
+    * Displays the notes the user enters underneath the "Price" segment
+    * */
     private void displayNotes(){
         EditText notesEditText = (EditText) findViewById(R.id.notes_edit_text);
         String ed_text = notesEditText.getText().toString().trim();
@@ -97,5 +113,25 @@ public class MainActivity extends AppCompatActivity {
             notesTextView.setVisibility(View.GONE);
             otherNotesTextView.setVisibility(View.GONE);
         }
+    }
+
+    /*
+    * Displayed the EditText field onClick of "Add Note" button
+    * */
+    private void displayEditText(){
+        EditText notesEditText = (EditText) findViewById(R.id.notes_edit_text);
+        notesEditText.setVisibility(notesEditText.getVisibility() == View.GONE ? View.VISIBLE
+                : View.GONE);
+
+//        The commented code below made the EditText view visible when the "Add Note" button was clicked, then gone when the button was clicked again but this was only executed once. The code above is a shorter and more complete version.
+/*        notesEditText.setVisibility(View.VISIBLE);
+        Button thisButton = (Button) findViewById(R.id.add_notes_button);
+        thisButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText notesEditText = (EditText) findViewById(R.id.notes_edit_text);
+                notesEditText.setVisibility(View.GONE);
+            }
+        });*/
     }
 }
