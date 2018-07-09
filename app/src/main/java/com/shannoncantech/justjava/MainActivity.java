@@ -105,11 +105,16 @@ public class MainActivity extends AppCompatActivity {
         EditText notesEditText = (EditText) findViewById(R.id.notes_edit_text);
         String ed_text = notesEditText.getText().toString().trim();
         TextView notesTextView = (TextView) findViewById(R.id.notes_text_view);
-        TextView otherNotesTextView = (TextView) findViewById(R.id.othernotes_text_view);
+        TextView otherNotesTextView = (TextView) findViewById(R.id.other_notes_text_view);
         notesTextView.setText(notesEditText.getText().toString());
         notesTextView.setVisibility(View.VISIBLE);
         otherNotesTextView.setVisibility(View.VISIBLE);
         if(ed_text.isEmpty()){
+            notesTextView.setVisibility(View.GONE);
+            otherNotesTextView.setVisibility(View.GONE);
+        }
+        /*If the EditText view isn't shown, the TextView showing the users notes won't be shown either.*/
+        if(!notesEditText.isShown()){
             notesTextView.setVisibility(View.GONE);
             otherNotesTextView.setVisibility(View.GONE);
         }
@@ -120,18 +125,14 @@ public class MainActivity extends AppCompatActivity {
     * */
     private void displayEditText(){
         EditText notesEditText = (EditText) findViewById(R.id.notes_edit_text);
+        TextView notesTextView = (TextView) findViewById(R.id.notes_text_view);
+        TextView otherNotesTextView = (TextView) findViewById(R.id.other_notes_text_view);
         notesEditText.setVisibility(notesEditText.getVisibility() == View.GONE ? View.VISIBLE
                 : View.GONE);
-
-//        The commented code below made the EditText view visible when the "Add Note" button was clicked, then gone when the button was clicked again but this was only executed once. The code above is a shorter and more complete version.
-/*        notesEditText.setVisibility(View.VISIBLE);
-        Button thisButton = (Button) findViewById(R.id.add_notes_button);
-        thisButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EditText notesEditText = (EditText) findViewById(R.id.notes_edit_text);
-                notesEditText.setVisibility(View.GONE);
-            }
-        });*/
+        /*Makes the previously entered notes disappear when the user 'disables' or clicks the "Add Note" button*/
+        if(!notesEditText.isShown()){
+            notesTextView.setVisibility(View.GONE);
+            otherNotesTextView.setVisibility(View.GONE);
+        }
     }
 }
