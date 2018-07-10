@@ -8,4 +8,6 @@
     <string name="price_text_view">$0.00</string>
     <string name="orderButton">Order</string>
     <string name="notes">Notes</string>
+    <string name="add_note_button">Add Note</string>
+    <string name="notes_hint_text_view">Notes:</string>
 </resources>

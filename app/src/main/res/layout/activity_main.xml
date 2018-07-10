@@ -69,7 +69,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginStart="5dp"
             android:onClick="showEditText"
-            android:text="Add Note" />
+            android:text="@string/add_note_button" />
 
         <EditText
             android:id="@+id/notes_edit_text"
@@ -107,7 +107,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginStart="5dp"
             android:paddingBottom="16dp"
-            android:text="Notes: "
+            android:text="@string/notes_hint_text_view"
             android:textColor="@android:color/darker_gray"
             android:textSize="16sp"
             android:visibility = "gone"/>

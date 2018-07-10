@@ -115,8 +115,10 @@ public class MainActivity extends AppCompatActivity {
         }
         /*If the EditText view isn't shown, the TextView showing the users notes won't be shown either.*/
         if(!notesEditText.isShown()){
-            notesTextView.setVisibility(View.GONE);
-            otherNotesTextView.setVisibility(View.GONE);
+            if(!ed_text.isEmpty()) {
+                notesTextView.setVisibility(View.GONE);
+                otherNotesTextView.setVisibility(View.GONE);
+            }
         }
     }
 
